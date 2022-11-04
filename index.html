@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookself App</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">bacabuku</a>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><input type="text" class="searchBar nav-link" placeholder="Cari Buku..." id="search-input"></li>
+                <li><button class="nav-link" id="showLogin">Login</button></li>
+            </ul>
+            <div id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>  
+    </header>
+
+    <main>   
+        <div class="addbox">
+            <button id="show-addbox">Tambah Buku</button>
+        </div>
+        <div class="popup">
+            <div class="close-btn">&times;</div>
+            <form action="" id="form">
+                <h2>Tambah Buku</h2>
+                <div class="form-element">
+                    <label for="bookstittle">Judul</label>
+                    <input type="text" id="bookstittle" placeholder="Masukkan Judul"  name="bookstittle" required class="formInput">
+                </div>
+                <div class="form-element">
+                    <label for="bookswritter">Penulis</label>
+                    <input type="text" id="bookswritter" placeholder="Masukkan Nama Penulis" required class="formInput">
+                </div>
+                <div class="form-element">
+                    <label for="booksyear">Tahun</label>
+                    <input type="number" id="booksyear" placeholder="Masukkan Tahun" required class="formInput">
+                </div>
+                <input type="submit" value="Submit" name="Submit" class="btn-submit" id="submit">
+            </form>
+            </div>
+        <div class="popup-login">
+            <div class="close-btn">&times;</div>
+            <form name="loginForm" action="">
+                <h2>Login</h2>
+                <div class="form-element">
+                    <label for="user-login">Username</label>
+                    <input type="text" id="username" placeholder="Masukkan Username"  name="user-login" required class="formInput">
+                    </div>
+                <div class="form-element">
+                    <label for="login-pass">Password</label>
+                    <input type="password" id="login-pass" placeholder="Masukkan password" required class="formInput">
+                </div>
+                <input type="submit" value="Submit" name="Submit" class="btn-submit">
+            </form>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="subcontainer">
+                <div class="maintittle">
+                    <h1 class="subheading">Sedang Dibaca</h1>
+                </div>
+                <div class="list-item" id="uncompletedbooks">
+                </div>
+            </div>   
+            <div class="subcontainer">
+                <div class="maintittle">
+                    <h1>Sudah Dibaca</h1>
+                </div>
+                <div class="list-item" id="completedbooks">
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <script src="script/mainscript.js"></script>
+</body>
+</html>
