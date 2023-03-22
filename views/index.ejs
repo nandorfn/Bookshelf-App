@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav  mb-2 mb-lg-0 ">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" onclick="showLogin()">Login</a>
+                            <a class="nav-link active custom-button" aria-current="page" onclick="showLogin()">Login</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -85,12 +85,12 @@
                                 </button>
                                 <div class="collapse" id="<%= book._id %>">
                                     <div class="card card-body list-group list-group-horizontal d-flex justify-content-evenly centerItem ">
-                                        <a id="restore-btn" class="custom-button"><i class="fa-sharp fa-solid fa-rotate-left fa-spin fa-spin-reverse fa-2xl" style="color: #1263df;"></i></a>
+                                        <a class="custom-button restore-btn data-id="<%= book._id %>"><i class="fa-sharp fa-solid fa-rotate-left fa-spin fa-spin-reverse fa-2xl" style="color: #1263df;"></i></a>
                                         <div>
                                             <p>Author : <%= book.author %></p>
                                             <p>Year : <%= book.year %></p>
                                         </div>
-                                        <a id="delete-btn" class="custom-button" data-id="<%= book._id %>"><i class="fa-solid fa-trash-can fa-beat bg-transparent fa-2xl " style="color: #e53838"></i></a>
+                                        <a class="custom-button delete-btn" data-id="<%= book._id %>"><i class="fa-solid fa-trash-can fa-beat bg-transparent fa-2xl " style="color: #e53838"></i></a>
 
                                     </div>
                                 </div>
@@ -117,12 +117,12 @@
                                 </button>
                                 <div class="collapse" id="<%= book._id %>">
                                     <div class="card card-body list-group list-group-horizontal d-flex justify-content-evenly centerItem ">
-                                        <a id="restore-btn" class="custom-button"><i class="fa-sharp fa-solid fa-rotate-left fa-spin fa-spin-reverse fa-2xl" style="color: #1263df;"></i></a>
+                                        <a data-id="<%= book._id %>" data-value=" <%= book.status %> " class="custom-button restore-btn"><i class="fa-sharp fa-solid fa-rotate-left fa-spin fa-spin-reverse fa-2xl" style="color: #1263df;"></i></a>
                                         <div>
                                             <p>Author : <%= book.author %></p>
                                             <p>Year : <%= book.year %></p>
                                         </div>
-                                        <a id="delete-btn" class="custom-button" data-id="<%= book._id %>"><i class="fa-solid fa-trash-can fa-beat bg-transparent fa-2xl " style="color: #e53838"></i></a>
+                                        <a class="custom-button delete-btn" data-id="<%= book._id %>"><i class="fa-solid fa-trash-can fa-beat bg-transparent fa-2xl " style="color: #e53838"></i></a>
 
                                     </div>
                                 </div>
