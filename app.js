@@ -24,8 +24,8 @@ const Book = mongoose.model('Book', bookSchema)
 
 app.get('/', async (req, res) => {
     try {
-        const books = await Book.find({status: true})
-        const novels = await Book.find({status: false})
+        const books = await Book.find({status: false})
+        const novels = await Book.find({status: true})
         
         res.render('index', { books: books, novels : novels })
     } catch (err) {
