@@ -76,7 +76,7 @@
                     <div class="">
                         <ul class="list-unstyled ">
                             <% books.forEach(function(book) { %>
-                                <button class="btn btn-light container-fluid" type="button" data-bs-toggle="collapse"
+                                <button class="mt-2 btn btn-light container-fluid" type="button" data-bs-toggle="collapse"
                                     aria-expanded="false" aria-controls="<%= book._id %>"
                                     data-bs-target="#<%= book._id %>">
                                     <h3>
@@ -84,13 +84,14 @@
                                     </h3>
                                 </button>
                                 <div class="collapse" id="<%= book._id %>">
-                                    <div class="card card-body">
-                                        <p>
-                                            Author : <%= book.author %>
-                                        </p>
-                                        <p>
-                                            Year : <%= book.year %>
-                                        </p>
+                                    <div class="card card-body list-group list-group-horizontal d-flex justify-content-evenly centerItem ">
+                                        <a id="restore-btn" class="custom-button"><i class="fa-sharp fa-solid fa-rotate-left fa-spin fa-spin-reverse fa-2xl" style="color: #1263df;"></i></a>
+                                        <div>
+                                            <p>Author : <%= book.author %></p>
+                                            <p>Year : <%= book.year %></p>
+                                        </div>
+                                        <a id="delete-btn" class="custom-button" data-id="<%= book._id %>"><i class="fa-solid fa-trash-can fa-beat bg-transparent fa-2xl " style="color: #e53838"></i></a>
+
                                     </div>
                                 </div>
 
@@ -115,9 +116,14 @@
                                     </h3>
                                 </button>
                                 <div class="collapse" id="<%= book._id %>">
-                                    <div class="card card-body">
-                                        <p>Author : <%= book.author %></p>
-                                        <p>Author : <%= book.year %></p>
+                                    <div class="card card-body list-group list-group-horizontal d-flex justify-content-evenly centerItem ">
+                                        <a id="restore-btn" class="custom-button"><i class="fa-sharp fa-solid fa-rotate-left fa-spin fa-spin-reverse fa-2xl" style="color: #1263df;"></i></a>
+                                        <div>
+                                            <p>Author : <%= book.author %></p>
+                                            <p>Year : <%= book.year %></p>
+                                        </div>
+                                        <a id="delete-btn" class="custom-button" data-id="<%= book._id %>"><i class="fa-solid fa-trash-can fa-beat bg-transparent fa-2xl " style="color: #e53838"></i></a>
+
                                     </div>
                                 </div>
 
@@ -155,10 +161,12 @@
 
 
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
         integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="/index.js"></script>
     <script src="/formLogin.js"></script>
     <script src="/addBook.js"></script>
 </body>

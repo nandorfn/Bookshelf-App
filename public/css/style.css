@@ -21,6 +21,14 @@ main {
     color: #1363DF;
 }
 
+.centerItem {
+    align-items: center;
+}
+
+.custom-button {
+    cursor: pointer;
+}
+
 .homeTittle {
     font-family: 'Inter', sans-serif;
     letter-spacing: -0.5rem;
