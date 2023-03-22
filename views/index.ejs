@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookself App</title>
+    <script src="https://kit.fontawesome.com/8839dda52d.js" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        
+    <!-- Local CSS -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">bacabuku</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav  mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" onclick="showLogin()">Login</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <main>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center ">
+                <h1 class="mx-auto homeTittle title">Keep a history of the books you have read!</h1>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary btn-lg mt-5" aria-current="page" onclick="showForm()">Add Books</button>
+                    <a class="btn btn-outline-secondary btn-lg btnHistory" aria-current="page" href="#section2" >Check your history</a>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-last  order-first ">
+                <img src="/assets/6920933.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container secondSection text-center">
+        <h2 id="section2" class="homeTittle">My Collections</h2>
+        <div class="row justify-content-between mt-5">
+            <div class="p-2 col-lg-5 bg-primary-subtle rounded-3 m-1">
+                <h2>Being Read</h2>
+                <div class="py-5">
+                    <ul class="list-unstyled ">
+                        <% books.forEach(function(book) { %>
+                            <li class="bg-light rounded-3 p-3 my-2 mx-4">
+                                <h2> <%= book.title %> </h2>
+                                <p><%= book.author %></p>
+                                <p><%= book.year %></p> 
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="p-2 col-lg-5 bg-primary-subtle rounded-3 m-1">
+                <h2>Already Read</h2>
+                <div class="py-5">
+                    <ul class="list-unstyled ">
+                        <% novels.forEach(function(book) { %>
+                            <li class="bg-light rounded-3 p-3 my-2 mx-4">
+                                <h2> <%= book.title %> </h2>
+                                <p><%= book.author %></p>
+                                <p><%= book.year %></p> 
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center container mt-5">
+        <div class="h4 pb-2 mb-4 text-danger border-bottom border-secondary-subtle shadow-sm">
+        </div>
+        <div class="d-flex justify-content-between">
+            <ul class="list-group list-group-horizontal d-flex justify-content-center ">
+                <li class="list-group-item border border-0 bg-transparent "><i class="fa-solid fa-copyright fa-xl"></i></li>
+                <li class="list-group-item border border-0 bg-transparent "><p>Roqman Firnando</p></li>
+            </ul>
+            <ul class="list-group list-group-horizontal d-flex justify-content-center">
+                <li class="list-group-item border border-0 bg-transparent"><a href=""><i class="fa-solid fa-envelope fa-2xl"></i></a></li>
+                <li class="list-group-item border border-0 bg-transparent"><a href=""><i class="fa-brands fa-instagram fa-2xl"></i></a></li>
+                <li class="list-group-item border border-0 bg-transparent"><a href=""><i class="fa-brands fa-github fa-2xl"></i></a></li>
+            </ul>
+        
+        </div>
+    </footer>
+
+
+
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="/formLogin.js"></script>
+    <script src="/addBook.js"></script>
+</body>
+</html>

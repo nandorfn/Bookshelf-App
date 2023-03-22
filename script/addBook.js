@@ -15,6 +15,14 @@ function showForm() {
             '<label class="form-label" for="swal-input3">Year</label>' +
             '<input type="number" class="form-control" id="swal-input3">' +
             '</div>' +
+            
+            '<div class="mb-3">' +
+            '<label class="form-label" for="swal-input4">Status</label>' +
+            '<select class="form-select" id="swal-input4" name="status">' +
+                '<option value="true">Already Read</option>' +
+                '<option value="false">Being Read</option>' +
+            '</select>' +
+            '</div>' +
             '</form>',
         showCancelButton: true,
         confirmButtonText: 'Submit',
@@ -24,26 +32,65 @@ function showForm() {
             confirmButton: 'btn btn-primary btn-lg m-2',
             cancelButton: 'btn btn-danger btn-lg m-2'
         },
-        preConfirm: () => {
-            const name = Swal.getPopup().querySelector('#swal-input1').value
+        preConfirm: function inputData() {
+            const title = Swal.getPopup().querySelector('#swal-input1').value
             const author = Swal.getPopup().querySelector('#swal-input2').value
-            const bookYear = Swal.getPopup().querySelector('#swal-input3').value
-            return { name: name, author: author, bookYear: bookYear }
+            const year = Swal.getPopup().querySelector('#swal-input3').value
+            const status = Swal.getPopup().querySelector('#swal-input4').value
+
+            return { title: title, author: author, year: year, status: status }
         },
         allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire({
-                title: 'Submitted',
-                html: `<p>Name: ${result.value.name}</p>` +
-                        `<p>Author: ${result.value.author}</p>` +
-                        `<p>Year: ${result.value.bookYear}</p>`,
-                icon: 'success',
-                buttonsStyling: false,
-                customClass: {
-                    confirmButton: 'btn btn-primary btn-lg m-2'
+            const data = result.value;
+
+            fetch('/books', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-            })
+                body: JSON.stringify(data)
+                
+            }).then(response => {
+                if (response.ok) {
+                    Swal.fire({
+                        title: 'Submitted',
+                        html: `<p>Name: ${data.title}</p>` +
+                            `<p>Author: ${data.author}</p>` +
+                            `<p>Year: ${data.year}</p>`,
+                        icon: 'success',
+                        buttonsStyling: false,
+                        customClass: {
+                            confirmButton: 'btn btn-primary btn-lg m-2'
+                        },
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Failed to submit book',
+                        icon: 'error',
+                        buttonsStyling: false,
+                        customClass: {
+                            confirmButton: 'btn btn-primary btn-lg m-2'
+                        },
+                    });
+                }
+                setTimeout(() => {
+                        location.href = ('/')
+                }, "2000");
+                
+            }).catch(error => {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Failed to submit book',
+                    icon: 'error',
+                    buttonsStyling: false,
+                    customClass: {
+                        confirmButton: 'btn btn-primary btn-lg m-2'
+                    },
+                });
+            });
         }
-    })
+    });
 }
