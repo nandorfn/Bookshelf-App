@@ -5,7 +5,7 @@ const _ = require('lodash')
 const jsdom = require("jsdom")
 const { JSDOM } = jsdom
 
-mongoose.connect('mongodb://127.0.0.1:27017/storedBook');
+mongoose.connect('mongodb+srv://admin-nando:test1234@cluster0.2tv00op.mongodb.net/storedBooks', {useNewUrlParser: true});
 const app = express()
 const port = 3000
 
