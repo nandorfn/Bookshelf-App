@@ -76,23 +76,25 @@ app.delete('/books/:id', async (req, res) => {
   }
 });
 
-app.put('/books/:id', async (req, res) => {
+app.post('/books/:id', async (req, res) => {
   try {
     const id = req.params.id;
     if (!id || !mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).send({ error: 'Invalid book ID' });
     }
-    const book = await Book.findByIdAndUpdate(id, { status: !book.status });
+    const book = await Book.findById(id);
     if (!book) {
       return res.status(404).send({ error: 'Book not found' });
     }
-    console.log(book);
-    res.status(200).send(book);
+    book.status = !book.status;
+    await book.save();
+
   } catch (err) {
     console.error(err);
     res.status(500).send({ error: 'Error updating book' });
   }
-})
+});
+
 
 
 

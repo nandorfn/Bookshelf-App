@@ -51,25 +51,25 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 text-center ">
-                    <h1 class="mx-auto homeTittle title">Keep a history of the books you have read!</h1>
-                    <div class="d-grid gap-2">
+                <div class="col-lg-6 text-center">
+                    <h1 class="mx-auto homeTittle title mt">Keep a history of the books you have read!</h1>
+                    <div class="d-grid gap-2 col-6 col-sm-12 m-auto mb-4">
                         <button class="btn btn-primary btn-lg mt-5" aria-current="page" onclick="showForm()">Add
                             Books</button>
                         <a class="btn btn-outline-secondary btn-lg btnHistory" aria-current="page"
-                            href="#section2">Check your history</a>
+                            href="#section2">Your Collections</a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-last  order-first ">
-                    <img src="/assets/6920933.jpg" class="img-fluid" alt="">
+                    <img src="/assets/6920933.jpg" class="img-fluid img-width" alt="">
                 </div>
             </div>
         </div>
 
         <div class="container secondSection text-center">
-            <h2 id="section2" class="homeTittle">My Collections</h2>
+            <h2 id="section2" class="homeTittle title margin1">My Collections</h2>
             <div class="row justify-content-between mt-5">
-                <div class="p-2 col-lg-5 bg-primary-subtle rounded-3 m-1">
+                <div class="p-2 m-auto col-lg-5 col-10 bg-primary-subtle rounded-3 m-1">
                     <h2>Being Read</h2>
                     <div class="h4 pb-2 border-bottom border-light shadow-lg">
                     </div>
@@ -85,7 +85,7 @@
                                 </button>
                                 <div class="collapse" id="<%= book._id %>">
                                     <div class="card card-body list-group list-group-horizontal d-flex justify-content-evenly centerItem ">
-                                        <a class="custom-button restore-btn data-id="<%= book._id %>"><i class="fa-sharp fa-solid fa-rotate-left fa-spin fa-spin-reverse fa-2xl" style="color: #1263df;"></i></a>
+                                        <a data-id="<%= book._id %>" data-value=" <%= book.status %> " class="custom-button restore-btn"><i class="fa-sharp fa-solid fa-rotate-left fa-spin fa-spin-reverse fa-2xl" style="color: #1263df;"></i></a>
                                         <div>
                                             <p>Author : <%= book.author %></p>
                                             <p>Year : <%= book.year %></p>
@@ -100,7 +100,7 @@
                     </div>
                 </div>
 
-                <div class="p-2 col-lg-5 bg-primary-subtle rounded-3 m-1">
+                <div class="p-2 col-lg-5 col-10 m-auto mt-2 bg-primary-subtle rounded-3 m-1">
                     <h2>Already Read</h2>
                     <div class="h4 pb-2 border-bottom border-light shadow-lg">
                     </div>
@@ -147,7 +147,7 @@
                     </li>
                 </ul>
                 <ul class="list-group list-group-horizontal d-flex justify-content-center">
-                    <li class="list-group-item border border-0 bg-transparent"><a href=""><i
+                    <li class="list-group-item border border-0 bg-transparent"><a href="mailto: firnandorfn@gmail.com"><i
                                 class="fa-solid fa-envelope fa-2xl"></i></a></li>
                     <li class="list-group-item border border-0 bg-transparent"><a href=""><i
                                 class="fa-brands fa-instagram fa-2xl"></i></a></li>

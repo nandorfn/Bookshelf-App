@@ -17,6 +17,9 @@ deleteBtns.forEach(deleteBtn => {
                 }
             })
             .catch(error => console.log(error));
+            setTimeout(() => {
+                window.location.reload();
+        }, "500");
             
     });
 });
@@ -34,8 +37,13 @@ restoreBtns.forEach(restoreBtn => {
                 if (response.status === 200) {
                     const bookCard = restoreBtn.closest('.card');
                     bookCard.remove();
+                    
                 }
             })
             .catch(error => console.error(error));
+            setTimeout(() => {
+                window.location.reload();
+        }, "500");
+            
     });
 });

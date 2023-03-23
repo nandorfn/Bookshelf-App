@@ -51,8 +51,21 @@ main {
         font-size: 3rem;
         letter-spacing: -0.2rem;
         line-height: 1;
-        margin-top: -15%;
+        width: 80%;
+        margin: auto;
     }
     
+    .margin1{
+        margin-top: 5%;
+    }
     
+    .mt {
+        margin-top: -10%;
+    }
+    
+    .img-width {
+        display: flex;
+        width: 50%;
+        margin: auto;
+    }
     }
