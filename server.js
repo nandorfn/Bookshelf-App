@@ -10,7 +10,7 @@ const dbKey = process.env.MONGODB
 
 mongoose.connect(`mongodb+srv://${dbKey}`, {useNewUrlParser: true});
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: false }))
