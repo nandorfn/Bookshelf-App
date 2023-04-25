@@ -4,8 +4,11 @@ const mongoose = require('mongoose')
 const _ = require('lodash')
 const jsdom = require("jsdom")
 const { JSDOM } = jsdom
+require('dotenv').config()
 
-mongoose.connect('mongodb+srv://admin-nando:test1234@cluster0.2tv00op.mongodb.net/storedBooks', {useNewUrlParser: true});
+const dbKey = process.env.MONGODB
+
+mongoose.connect(`mongodb+srv://${dbKey}`, {useNewUrlParser: true});
 const app = express()
 const port = 3000
 
