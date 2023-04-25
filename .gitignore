@@ -8,6 +8,7 @@
 *.so
 .env
 node_modules/
+now.json
 
 # Packages #
 ############
